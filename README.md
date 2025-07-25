@@ -137,8 +137,8 @@ Add issue filtering by location/category
 This is an open-source beginner-friendly project.
 Feel free to fork, improve, and submit pull requests!
 
-## 📬 Contact
+# 📬 Contact
 
-Made with 💙 by **Abhinav Mishra**  
-📧 ninjaabhinav02@gmail.com
-🌐 LinkedIn: ((https://www.linkedin.com/in/ninjaabhinav/))
+Made with 💙 by **Abhinav Mishra**     
+📧 ninjaabhinav02@gmail.com   
+🌐 LinkedIn: ((https://www.linkedin.com/in/ninjaabhinav/))    
