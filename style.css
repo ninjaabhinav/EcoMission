@@ -1,0 +1,197 @@
+/* EcoMission Global Styles */
+:root {
+    --eco-green: #4caf50;
+    --eco-dark-green: #256029;
+    --eco-light-green: #a8e6a3;
+    --eco-bg: linear-gradient(135deg, #e0ffe6 0%, #b2f7c1 100%);
+    --eco-white: #fff;
+    --eco-gray: #f5f5f5;
+    --eco-shadow: 0 8px 32px 0 rgba(34, 139, 34, 0.15);
+    --eco-radius: 18px;
+    --eco-transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    --eco-cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%234caf50"/></svg>') 16 16, auto;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: 
+        linear-gradient(135deg, rgba(224,255,230,0.60) 0%, rgba(178,247,193,0.60) 100%),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: var(--eco-dark-green);
+    cursor: var(--eco-cursor);
+}
+
+#main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.auth-container {
+    background: var(--eco-white);
+    box-shadow: var(--eco-shadow);
+    border-radius: var(--eco-radius);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.eco-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--eco-green);
+    letter-spacing: 2px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 8px #b2f7c1;
+}
+
+.eco-subtitle {
+    font-size: 1.1rem;
+    color: var(--eco-dark-green);
+    margin-bottom: 1.5em;
+    opacity: 0.8;
+}
+
+.tab-switch {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2em;
+    justify-content: center;
+    gap: 1em;
+}
+
+.tab-btn {
+    background: var(--eco-gray);
+    border: none;
+    outline: none;
+    padding: 0.7em 2em;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--eco-dark-green);
+    cursor: pointer;
+    transition: background var(--eco-transition), color var(--eco-transition), box-shadow var(--eco-transition);
+    box-shadow: 0 2px 8px 0 rgba(76,175,80,0.08);
+    position: relative;
+    z-index: 1;
+}
+.tab-btn.active, .tab-btn:focus {
+    background: var(--eco-green);
+    color: var(--eco-white);
+    box-shadow: 0 4px 16px 0 rgba(76,175,80,0.18);
+}
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    animation: fadeIn 0.7s;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+.form-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--eco-dark-green);
+    margin-bottom: 0.2em;
+}
+.form-group input, .form-group select {
+    padding: 0.7em 1em;
+    border-radius: 8px;
+    border: 1.5px solid var(--eco-light-green);
+    background: var(--eco-gray);
+    font-size: 1rem;
+    color: var(--eco-dark-green);
+    outline: none;
+    transition: border var(--eco-transition), box-shadow var(--eco-transition);
+}
+.form-group input:focus, .form-group select:focus {
+    border: 1.5px solid var(--eco-green);
+    box-shadow: 0 0 0 2px #a8e6a3;
+}
+
+.eco-btn {
+    background: var(--eco-green);
+    color: var(--eco-white);
+    border: none;
+    border-radius: 999px;
+    padding: 0.9em 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 0.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 16px 0 rgba(76,175,80,0.18);
+    transition: background var(--eco-transition), transform 0.15s, box-shadow var(--eco-transition);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.eco-btn:active {
+    background: var(--eco-dark-green);
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px 0 rgba(76,175,80,0.10);
+}
+
+/* Button Ripple Effect */
+.eco-btn::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(168, 230, 163, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: width 0.4s cubic-bezier(0.4,0,0.2,1), height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
+    opacity: 0;
+    z-index: 2;
+}
+.eco-btn.clicked::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+    transition: width 0.4s, height 0.4s, opacity 0.4s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--eco-gray);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--eco-light-green);
+    border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .auth-container {
+        padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+        max-width: 98vw;
+    }
+    .eco-title {
+        font-size: 2rem;
+    }
+}
